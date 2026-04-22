@@ -27,10 +27,12 @@ export function ContactSection() {
     <section className="section" id="contact">
       <div className="container">
         <div className="section-head">
-          <div>
+          <div className="section-intro">
             <div className="section-kicker">Contact</div>
-            <h2 className="section-title">Start a conversation</h2>
-            <p className="section-copy">
+            <h2 className="section-title section-intro-title">
+              Start a conversation
+            </h2>
+            <p className="section-copy section-intro-copy">
               If you are interested in grants, pilot opportunities, research
               collaboration, or learning more about the Sentinel platform, we
               would be glad to connect.

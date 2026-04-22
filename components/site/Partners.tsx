@@ -30,10 +30,12 @@ export function Partners() {
     <section className="section" id="partners">
       <div className="container">
         <div className="section-head">
-          <div>
+          <div className="section-intro">
             <div className="section-kicker">Partnering</div>
-            <h2 className="section-title">Who we want to talk to</h2>
-            <p className="section-copy">
+            <h2 className="section-title section-intro-title">
+              Who we want to talk to
+            </h2>
+            <p className="section-copy section-intro-copy">
               Sentinel is positioned for conversations with organizations
               focused on public safety, autonomous systems, applied research,
               and field validation of emerging response technology.

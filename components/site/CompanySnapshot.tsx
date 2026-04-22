@@ -30,18 +30,18 @@ export function CompanySnapshot() {
     <section className="section" id="credibility">
       <div className="container">
         <div className="section-head">
-          <div>
+          <div className="section-intro">
             <div className="section-kicker">Company snapshot</div>
-            <h2 className="section-title">
+            <h2 className="section-title section-intro-title">
               Built in Oklahoma. Focused on real-world response.
             </h2>
-            <p className="section-copy">
+            <p className="section-copy section-intro-copy">
               SJ Response Systems is building Sentinel as an integrated mission
               intelligence system for teams that need to plan missions, run
               them with execution visibility, understand what was actually
               observed, and improve how operations are performed over time.
             </p>
-            <p className="section-copy section-copy-spaced">
+            <p className="section-copy section-copy-spaced section-intro-copy">
               The platform is designed to help teams establish coverage
               quickly, maintain continuous awareness during active operations,
               evaluate mission effectiveness, and carry those lessons forward

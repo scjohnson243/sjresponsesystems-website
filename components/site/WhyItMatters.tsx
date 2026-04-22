@@ -34,10 +34,12 @@ export function WhyItMatters() {
     <section className="section" id="why-it-matters">
       <div className="container">
         <div className="section-head">
-          <div>
+          <div className="section-intro">
             <div className="section-kicker">Operational value</div>
-            <h2 className="section-title">Why this matters</h2>
-            <p className="section-copy">
+            <h2 className="section-title section-intro-title">
+              Why this matters
+            </h2>
+            <p className="section-copy section-intro-copy">
               Early detection changes everything. The difference between
               identifying a fire at initial ignition versus after it spreads is
               measured in cost, risk, and lives.

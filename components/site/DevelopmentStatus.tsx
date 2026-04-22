@@ -45,10 +45,12 @@ export function DevelopmentStatus() {
     <section className="section" id="status">
       <div className="container">
         <div className="section-head">
-          <div>
+          <div className="section-intro">
             <div className="section-kicker">Development</div>
-            <h2 className="section-title">Platform progress</h2>
-            <p className="section-copy">
+            <h2 className="section-title section-intro-title">
+              Platform progress
+            </h2>
+            <p className="section-copy section-intro-copy">
               Sentinel is in active development with working system components,
               expanding mission-analysis capabilities, and a clear path toward
               operational validation.
