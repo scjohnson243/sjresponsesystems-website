@@ -7,9 +7,9 @@ const snapshotCards = [
   },
   {
     top: "Direction",
-    title: "Mission-focused platform",
+    title: "Integrated mission intelligence system",
     copy:
-      "Developed around continuous coverage, measurable mission performance, and response-oriented operational workflows.",
+      "Sentinel is built to support planning, execution, live monitoring, measurable coverage accountability, and after-action understanding in one operational system.",
   },
   {
     top: "Engagement",
@@ -18,10 +18,10 @@ const snapshotCards = [
       "Current conversations include grant alignment, pilot opportunities, and collaborative relationships that support validation and growth.",
   },
   {
-    top: "Outlook",
-    title: "Built to expand",
+    top: "Mission scope",
+    title: "One core system, multiple mission types",
     copy:
-      "The same platform direction supports wildfire detection, search and rescue, disaster response, and future monitoring applications.",
+      "The same mission system can support wildfire monitoring, search and rescue, tornado damage assessment, and infrastructure observation because it is designed around mission execution, continuous awareness, and measurable coverage rather than a single aircraft task.",
   },
 ];
 
@@ -36,10 +36,17 @@ export function CompanySnapshot() {
               Built in Oklahoma. Focused on real-world response.
             </h2>
             <p className="section-copy">
-              SJ Response Systems is developing Sentinel with an emphasis on
-              public-safety relevance, operational clarity, and practical field
-              use. Early outreach is underway across grant, research, and
-              mission-aligned partnership channels.
+              SJ Response Systems is building Sentinel as an integrated mission
+              intelligence system for teams that need to plan missions, run
+              them with execution visibility, understand what was actually
+              observed, and improve how operations are performed over time.
+            </p>
+            <p className="section-copy section-copy-spaced">
+              The platform is designed to help teams establish coverage
+              quickly, maintain continuous awareness during active operations,
+              evaluate mission effectiveness, and carry those lessons forward
+              through replay, analysis, and operator-assisted mission
+              improvement.
             </p>
           </div>
         </div>

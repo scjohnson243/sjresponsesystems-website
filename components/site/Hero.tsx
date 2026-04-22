@@ -1,19 +1,9 @@
+import { RadarMapPanel } from "@/components/site/RadarMapPanel";
+
 const statusItems = [
   { label: "Platform status", value: "Active development" },
   { label: "Focus area", value: "Coverage + mission intelligence" },
   { label: "Engagement", value: "Grants, pilot programs, partnerships" },
-];
-
-const miniCells = [
-  "mini-cell active",
-  "mini-cell active",
-  "mini-cell revisit",
-  "mini-cell active",
-  "mini-cell alert",
-  "mini-cell revisit",
-  "mini-cell",
-  "mini-cell active",
-  "mini-cell",
 ];
 
 export function Hero() {
@@ -24,14 +14,20 @@ export function Hero() {
           <div className="eyebrow">Autonomous Aerial Response Systems</div>
           <h1>Continuous coverage. Measurable intelligence.</h1>
           <p className="hero-subhead">
-            Sentinel is an autonomous coverage and mission intelligence platform
-            for wildfire detection, search and rescue, disaster response, and
-            public-safety operations.
+            Sentinel is an autonomous coverage and mission intelligence
+            platform for wildfire detection, search and rescue, disaster
+            response, and public-safety operations.
           </p>
           <p className="hero-copy">
-            Sentinel is an aerial mission intelligence platform designed for continuous observation operations in high-risk environments.
-            The system combines autonomous mission execution with persistent coverage analysis, helping operators understand what areas were actually observed, where coverage gaps remain, how quickly locations are revisited, and how conditions evolve over time.
-            Instead of focusing only on aircraft movement, Sentinel is built to create an operational picture teams can use to support earlier detection, faster response, and more informed decision-making.
+            Sentinel is an aerial mission intelligence platform designed for
+            continuous observation operations in high-risk environments. The
+            system combines autonomous mission execution with persistent
+            coverage analysis, helping operators understand what areas were
+            actually observed, where coverage gaps remain, how quickly
+            locations are revisited, and how conditions evolve over time.
+            Instead of focusing only on aircraft movement, Sentinel is built
+            to create an operational picture teams can use to support earlier
+            detection, faster response, and more informed decision-making.
           </p>
 
           <div className="hero-actions">
@@ -57,25 +53,34 @@ export function Hero() {
         </div>
 
         <div className="hero-side">
-          <div className="signal-card">
-            <div className="signal-label">Sentinel signal</div>
-            <h2 className="signal-title">Built for measurable monitoring</h2>
-            <p className="signal-copy">
-              Sentinel is designed around continuous coverage, predictable
-              revisit cycles, and mission evaluation rather than simple waypoint
-              completion.
-            </p>
+          <div className="signal-card signal-card-hero">
+            <div className="signal-layout signal-layout-hero">
+              <div className="signal-content signal-content-hero">
+                <div className="signal-label">Operational capability</div>
+                <h2 className="signal-title">
+                  Rapid deployment. Continuous awareness.
+                </h2>
+                <p className="signal-copy">
+                  Sentinel is built to help response teams establish persistent
+                  aerial monitoring quickly in fast-moving operational
+                  environments.
+                </p>
+                <p className="signal-copy">
+                  Within minutes of arriving on scene, operators can define a
+                  mission area, generate an optimized flight path, launch
+                  autonomous aerial coverage, and begin receiving continuous
+                  mission intelligence and live operational updates.
+                </p>
+                <p className="signal-copy signal-copy-last">
+                  The system is designed for repeatable coverage, measurable
+                  observation tracking, and sustained monitoring throughout the
+                  full duration of an incident or deployment.
+                </p>
+              </div>
 
-            <div className="mini-grid" aria-hidden="true">
-              {miniCells.map((className, index) => (
-                <div key={`${className}-${index}`} className={className} />
-              ))}
-            </div>
-
-            <div className="mini-grid-labels">
-              <span>Observed</span>
-              <span>Revisit</span>
-              <span>Alert</span>
+              <div className="signal-visual signal-visual-hero">
+                <RadarMapPanel variant="deployment" />
+              </div>
             </div>
           </div>
         </div>
