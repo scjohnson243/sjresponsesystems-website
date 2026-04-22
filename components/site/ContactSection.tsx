@@ -16,7 +16,9 @@ const contactDetails = [
   { label: "Website", value: <span>sjresponsesystems.com</span> },
   {
     label: "Inquiry types",
-    value: <span>Grant, pilot, partnership, research</span>,
+    value: (
+      <span>Grant, pilot, partnership, research, Join the Sentinel Team</span>
+    ),
   },
 ];
 
@@ -58,8 +60,8 @@ export function ContactSection() {
           <div className="contact-card">
             <h3>Contact information</h3>
             <p>
-              Replace the placeholders below with your preferred public contact
-              details before publishing.
+              SJ Response Systems is actively building partnerships, pilot
+              programs, and expanding the Sentinel team.
             </p>
 
             <div className="contact-list">
