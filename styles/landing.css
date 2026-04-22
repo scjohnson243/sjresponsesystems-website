@@ -539,14 +539,16 @@ h1 {
 }
 
 .section-intro {
-  width: 100%;
-  max-width: none;
+  width: min(100%, 100ch);
   margin-left: auto;
   margin-right: auto;
 }
 
 .section-intro-title {
   max-width: 44ch;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
   line-height: 1.08;
 }
 
