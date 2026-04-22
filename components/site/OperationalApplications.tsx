@@ -2,16 +2,13 @@
 
 import { useState } from "react";
 
-type ScenarioId =
-  | "wildfire"
-  | "sar"
-  | "tornado"
-  | "infrastructure";
+type ScenarioId = "wildfire" | "sar" | "tornado" | "infrastructure";
 
 type Scenario = {
   id: ScenarioId;
   tabLabel: string;
   title: string;
+  intro: string;
   problem: string;
   sentinelHelps: string;
   differentiator: string;
@@ -25,13 +22,16 @@ const scenarios: Scenario[] = [
     id: "wildfire",
     tabLabel: "Wildfire Monitoring",
     title: "Persistent wildfire monitoring with immediate hotspot awareness",
+    intro:
+      "Fire conditions can shift faster than ground teams can reposition, and operational visibility is often lost between flyovers. Sentinel’s wildfire-response direction is heavily influenced by firsthand familiarity with public-safety operations and the challenges responders face during rapidly evolving incidents. The platform is being designed to help provide more continuous, cost-effective aerial awareness so agencies can maintain better visibility across active operational areas, identify emerging hotspots earlier, and improve responder awareness throughout an incident.",
     problem:
       "Wildfire operations often rely on intermittent flyovers, spot reports, or manual observation. That creates blind periods where new starts or flare-ups can develop inside the area being watched.",
     sentinelHelps:
       "Sentinel is designed for continuous thermal monitoring across a repeatable autonomous coverage grid, helping teams maintain persistent aerial awareness throughout an active incident instead of depending on occasional passes.",
     differentiator:
       "If another fire starts somewhere inside the monitored coverage grid, Sentinel is designed to detect it and alert operators immediately instead of relying on intermittent flyovers or manual reporting.",
-    callout: "Measurable coverage accountability means operators can verify what parts of the fire area were actually observed, how recently they were scanned, and where continuous overwatch is being maintained.",
+    callout:
+      "Measurable coverage accountability means operators can verify what parts of the fire area were actually observed, how recently they were scanned, and where continuous overwatch is being maintained.",
     metrics: [
       { label: "Active thermal sectors monitored", value: "12 live sectors in the coverage grid" },
       { label: "New hotspot detections", value: "Immediate alerting inside monitored sectors" },
@@ -40,19 +40,22 @@ const scenarios: Scenario[] = [
       { label: "Persistent coverage model", value: "Continuous thermal overwatch instead of intermittent passes" },
     ],
     missionSupport:
-      "Sentinel’s mission support direction is focused on helping operators adapt coverage priorities during an incident, identify sectors that need tighter revisit timing, and learn from replayed wildfire missions to improve future monitoring effectiveness.",
+      "Sentinel's mission support direction is focused on helping operators adapt coverage priorities during an incident, identify sectors that need tighter revisit timing, and learn from replayed wildfire missions to improve future monitoring effectiveness.",
   },
   {
     id: "sar",
     tabLabel: "Search & Rescue",
     title: "Search accountability that goes beyond a flown route",
+    intro:
+      "Part of Sentinel's search-and-rescue direction was shaped by a real missing-person incident connected to this project, where delayed response, incomplete aerial visibility, and uncertainty about what had actually been searched exposed serious operational gaps. That helped reinforce why measurable coverage accountability matters during active search operations.",
     problem:
       "In search operations, a completed flight path does not guarantee meaningful coverage. Teams still need to know what sectors were actually searched, how often they were revisited, and where visibility gaps remain.",
     sentinelHelps:
       "Sentinel supports measurable search accountability by tracking where the aircraft actually observed, how the search area was covered over time, and which sectors still need attention during an active mission.",
     differentiator:
       "Sentinel is designed to help teams understand what areas were actually observed, when they were searched, how often they were revisited, and where coverage gaps may still exist during active operations.",
-    callout: "Coverage accountability gives search leaders a defensible record of what sectors received observation and which parts of the mission still require follow-up.",
+    callout:
+      "Coverage accountability gives search leaders a defensible record of what sectors received observation and which parts of the mission still require follow-up.",
     metrics: [
       { label: "Sectors searched", value: "Logged by observed search area, not just route flown" },
       { label: "Coverage confidence", value: "Higher confidence where repeat observations were achieved" },
@@ -67,13 +70,16 @@ const scenarios: Scenario[] = [
     id: "tornado",
     tabLabel: "Tornado Damage Assessment",
     title: "Rapid aerial overwatch after severe weather",
+    intro:
+      "In Oklahoma, severe weather can leave responders working in unstable conditions with blocked routes, scattered damage, and incomplete visibility across a wide area. This mission matters because teams need fast aerial context they can return to repeatedly as the response picture changes.",
     problem:
       "After a tornado or severe weather event, response teams need fast situational awareness across damaged neighborhoods, blocked routes, and changing access conditions. Ground reports alone are often incomplete in the first operational window.",
     sentinelHelps:
       "Sentinel supports rapid deployment after severe weather by helping teams establish repeatable aerial coverage missions for structural damage assessment, route monitoring, and persistent overwatch as response operations stabilize.",
     differentiator:
       "For Oklahoma-style severe weather response, Sentinel helps teams move from one-time reconnaissance to sustained aerial awareness, so damaged sectors, access routes, and changing conditions can be revisited and tracked over time.",
-    callout: "This turns aerial assessment into an operational record, not just a collection of flyovers, which matters when multiple agencies are working across a wide damage footprint.",
+    callout:
+      "This turns aerial assessment into an operational record, not just a collection of flyovers, which matters when multiple agencies are working across a wide damage footprint.",
     metrics: [
       { label: "Structures reviewed", value: "Prioritized by repeatable aerial sectors" },
       { label: "Route accessibility monitoring", value: "Tracked as ingress and egress conditions change" },
@@ -88,13 +94,16 @@ const scenarios: Scenario[] = [
     id: "infrastructure",
     tabLabel: "Infrastructure & Energy Monitoring",
     title: "Repeatable corridor observation for remote assets",
+    intro:
+      "Remote infrastructure operations depend on consistent visibility across large areas where a single missed segment can matter. This mission exists to support repeatable inspection coverage, maintain awareness across rural corridors and remote assets, and help teams catch meaningful changes early.",
     problem:
       "Pipeline corridors, utility routes, and remote energy infrastructure need more than one-off inspections. Teams need repeatable coverage, anomaly awareness, and confidence that large operating areas were actually observed.",
     sentinelHelps:
       "Sentinel supports persistent monitoring of infrastructure and energy assets by enabling repeatable inspection coverage, corridor awareness, and change detection across remote or difficult-to-access environments.",
     differentiator:
       "Instead of simply logging that an aircraft flew the route, Sentinel is focused on whether the corridor was actually observed, where anomalies appeared, and how coverage compares across repeated monitoring cycles.",
-    callout: "Measurable coverage accountability helps infrastructure teams prove what was inspected, identify where follow-up is needed, and maintain persistent awareness across long operating corridors.",
+    callout:
+      "Measurable coverage accountability helps infrastructure teams prove what was inspected, identify where follow-up is needed, and maintain persistent awareness across long operating corridors.",
     metrics: [
       { label: "Corridor miles monitored", value: "Measured by observed route coverage" },
       { label: "Repeat inspection consistency", value: "Comparable pass-to-pass monitoring cadence" },
@@ -103,15 +112,17 @@ const scenarios: Scenario[] = [
       { label: "Remote site revisit tracking", value: "Useful for remote assets and utility corridors" },
     ],
     missionSupport:
-      "For infrastructure teams, Sentinel’s adaptive mission support direction centers on helping operators compare repeated corridor coverage, identify where inspection consistency is slipping, and refine future monitoring routes through replay and simulated planning.",
+      "For infrastructure teams, Sentinel's adaptive mission support direction centers on helping operators compare repeated corridor coverage, identify where inspection consistency is slipping, and refine future monitoring routes through replay and simulated planning.",
   },
 ];
 
 export function OperationalApplications() {
-  const [activeScenarioId, setActiveScenarioId] = useState<ScenarioId>("wildfire");
+  const [activeScenarioId, setActiveScenarioId] =
+    useState<ScenarioId>("wildfire");
 
   const activeScenario =
-    scenarios.find((scenario) => scenario.id === activeScenarioId) ?? scenarios[0];
+    scenarios.find((scenario) => scenario.id === activeScenarioId) ??
+    scenarios[0];
 
   return (
     <div className="applications-shell">
@@ -135,12 +146,13 @@ export function OperationalApplications() {
               onClick={() => setActiveScenarioId(scenario.id)}
             >
               <span className="applications-tab-index">
-                {String(scenarios.findIndex((item) => item.id === scenario.id) + 1).padStart(
-                  2,
-                  "0",
-                )}
+                {String(
+                  scenarios.findIndex((item) => item.id === scenario.id) + 1,
+                ).padStart(2, "0")}
               </span>
-              <span className="applications-tab-label">{scenario.tabLabel}</span>
+              <span className="applications-tab-label">
+                {scenario.tabLabel}
+              </span>
             </button>
           );
         })}
@@ -156,12 +168,7 @@ export function OperationalApplications() {
           <div className="applications-copy-intro">
             <div className="signal-label">Operational outcomes</div>
             <h3 className="applications-title">{activeScenario.title}</h3>
-            <p className="applications-intro-copy">
-              Sentinel is built to support mission-aware monitoring in the
-              field, with measurable coverage accountability, persistent aerial
-              awareness, and clearer operational decision support than a
-              one-time drone flight alone can provide.
-            </p>
+            <p className="applications-intro-copy">{activeScenario.intro}</p>
           </div>
 
           <div className="applications-text-grid">
@@ -189,8 +196,12 @@ export function OperationalApplications() {
           <div className="applications-metrics">
             {activeScenario.metrics.map((metric) => (
               <div key={metric.label} className="applications-metric">
-                <span className="applications-metric-label">{metric.label}</span>
-                <span className="applications-metric-value">{metric.value}</span>
+                <span className="applications-metric-label">
+                  {metric.label}
+                </span>
+                <span className="applications-metric-value">
+                  {metric.value}
+                </span>
               </div>
             ))}
           </div>

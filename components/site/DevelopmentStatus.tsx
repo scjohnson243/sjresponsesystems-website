@@ -22,16 +22,19 @@ const coreProgress = [
 const growthItems = [
   {
     tag: "Growth",
+    live: true,
     copy:
       "We are actively expanding the Sentinel platform and are interested in connecting with developers, engineers, and collaborators aligned with autonomous systems and public-safety technology.",
   },
   {
     tag: "Opportunities",
+    live: true,
     copy:
       "Areas of interest include Python backend development, geospatial systems, mission execution, simulation, and UI/UX for operational tools.",
   },
   {
     tag: "Get involved",
+    live: true,
     copy:
       "If you're interested in contributing, collaborating, or exploring opportunities, reach out through the contact section below.",
   },
@@ -69,7 +72,10 @@ export function DevelopmentStatus() {
           <div className="status-stack">
             {growthItems.map((item) => (
               <div key={item.tag} className="status-box">
-                <div className="tag">{item.tag}</div>
+                <div className="tag">
+                  {item.live ? <span className="live" /> : null}
+                  {item.tag}
+                </div>
                 <p>{item.copy}</p>
               </div>
             ))}

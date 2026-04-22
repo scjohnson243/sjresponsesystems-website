@@ -1283,17 +1283,23 @@ h1 {
 .status-panel {
   display: grid;
   grid-template-columns: 0.95fr 1.05fr;
-  gap: 20px;
+  gap: 16px;
+  align-items: stretch;
 }
 
 .status-stack,
 .contact-list {
   display: grid;
-  gap: 14px;
+  gap: 12px;
   align-content: start;
+  grid-auto-rows: 1fr;
 }
 
 .status-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 100%;
   padding: 16px 18px;
 }
 
@@ -1305,13 +1311,14 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 0.72rem;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .status-box p,
 .contact-card p {
   margin: 0;
   font-size: 0.96rem;
+  line-height: 1.62;
 }
 
 .contact-grid {
