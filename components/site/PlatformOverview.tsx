@@ -1,3 +1,5 @@
+import { RadarMapPanel } from "@/components/site/RadarMapPanel";
+
 const capabilities = [
   {
     title: "Generate mission coverage",
@@ -63,14 +65,7 @@ export function PlatformOverview() {
           </div>
 
           <div className="diagram">
-            <div className="diagram-frame" aria-hidden="true">
-              <div className="sonar">
-                <div className="sonar-ring" />
-                <div className="sonar-ring r2" />
-                <div className="sonar-ring r3" />
-                <div className="sonar-dot" />
-              </div>
-            </div>
+            <RadarMapPanel />
 
             <div className="diagram-meta">
               {diagramMeta.map((item) => (

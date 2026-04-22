@@ -1,7 +1,7 @@
 const statusItems = [
   { label: "Platform status", value: "Active development" },
   { label: "Focus area", value: "Coverage + mission intelligence" },
-  { label: "Engagement", value: "Grants, pilots, partnerships" },
+  { label: "Engagement", value: "Grants, pilot programs, partnerships" },
 ];
 
 const miniCells = [
@@ -29,10 +29,9 @@ export function Hero() {
             public-safety operations.
           </p>
           <p className="hero-copy">
-            Sentinel goes beyond aircraft control. The platform supports mission
-            execution, tracks what was actually observed, and helps operators
-            evaluate coverage quality, revisit timing, and mission performance
-            with measurable evidence.
+            Sentinel is an aerial mission intelligence platform designed for continuous observation operations in high-risk environments.
+            The system combines autonomous mission execution with persistent coverage analysis, helping operators understand what areas were actually observed, where coverage gaps remain, how quickly locations are revisited, and how conditions evolve over time.
+            Instead of focusing only on aircraft movement, Sentinel is built to create an operational picture teams can use to support earlier detection, faster response, and more informed decision-making.
           </p>
 
           <div className="hero-actions">

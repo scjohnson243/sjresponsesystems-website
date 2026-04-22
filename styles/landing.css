@@ -295,6 +295,41 @@ h1 {
   }
 }
 
+@keyframes radarSweepRotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes hotspotFlicker {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: translate(-50%, -50%) scale(0.92);
+  }
+  45% {
+    opacity: 0.68;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  60% {
+    opacity: 0.92;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+@keyframes routeSignal {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.72;
+  }
+}
+
 @keyframes dotPulse {
   0%,
   100% {
@@ -571,40 +606,256 @@ h1 {
   pointer-events: none;
 }
 
-.sonar {
+.radar-map-panel {
+  padding: 0;
+}
+
+.radar-map-panel::after {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(0, 229, 255, 0.1), transparent 38%),
+    linear-gradient(180deg, rgba(0, 229, 255, 0.04), transparent 45%);
+  animation: sweepScan 6s ease-in-out infinite;
+}
+
+.radar-map-surface {
+  position: relative;
+  min-height: 330px;
+  overflow: hidden;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(5, 28, 40, 0.72), transparent 42%),
+    linear-gradient(180deg, rgba(4, 11, 18, 0.98), rgba(8, 18, 27, 0.98));
+}
+
+.radar-map-svg,
+.radar-grid-overlay,
+.radar-noise-overlay,
+.radar-vignette-overlay {
   position: absolute;
   inset: 0;
-  display: grid;
-  place-items: center;
 }
 
-.sonar-dot {
+.radar-map-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.radar-contours path {
+  stroke: rgba(116, 184, 210, 0.2);
+  stroke-width: 2.1;
+  stroke-linecap: round;
+}
+
+.radar-routes path {
+  stroke: rgba(0, 229, 255, 0.34);
+  stroke-width: 1.65;
+  stroke-linecap: round;
+  stroke-dasharray: 6 10;
+  animation: routeSignal 7s ease-in-out infinite;
+}
+
+.radar-sector-lines line {
+  stroke: rgba(79, 195, 247, 0.12);
+  stroke-width: 1;
+  stroke-dasharray: 4 12;
+}
+
+.radar-grid-overlay {
+  background:
+    linear-gradient(90deg, rgba(79, 195, 247, 0.08) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(79, 195, 247, 0.08) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.4));
+}
+
+.radar-noise-overlay {
+  background:
+    radial-gradient(circle at 18% 22%, rgba(255, 255, 255, 0.05), transparent 22%),
+    radial-gradient(circle at 72% 30%, rgba(255, 255, 255, 0.04), transparent 18%),
+    radial-gradient(circle at 38% 72%, rgba(255, 255, 255, 0.03), transparent 20%);
+  mix-blend-mode: screen;
+  opacity: 0.28;
+}
+
+.radar-vignette-overlay {
+  background:
+    radial-gradient(circle at 50% 50%, transparent 44%, rgba(3, 8, 14, 0.42) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.24));
+}
+
+.radar-hotspot {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 196, 64, 0.95), rgba(255, 94, 0, 0.5) 42%, transparent 72%);
+  box-shadow:
+    0 0 10px rgba(255, 140, 0, 0.34),
+    0 0 24px rgba(255, 94, 0, 0.22);
+  animation: hotspotFlicker 5.6s ease-in-out infinite;
+}
+
+.radar-hotspot::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgba(255, 196, 64, 0.16), transparent 70%);
+}
+
+.hotspot-alpha {
+  top: 28%;
+  left: 69%;
+  animation-delay: 0.2s;
+}
+
+.hotspot-bravo {
+  top: 61%;
+  left: 58%;
+  width: 14px;
+  height: 14px;
+  animation-delay: 1.4s;
+}
+
+.hotspot-charlie {
+  top: 44%;
+  left: 32%;
   width: 12px;
   height: 12px;
-  border-radius: 50%;
-  background: var(--cyan);
-  box-shadow: 0 0 14px rgba(0, 229, 255, 0.5);
-  animation: dotPulse 2.2s ease-in-out infinite;
-  position: relative;
-  z-index: 2;
+  animation-delay: 2.4s;
 }
 
-.sonar-ring {
+.radar-emitter {
   position: absolute;
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  border: 2px solid rgba(0, 229, 255, 0.35);
-  box-shadow: 0 0 24px rgba(0, 229, 255, 0.15);
-  animation: sonarPing 3.2s ease-out infinite;
+  top: 50%;
+  left: 50%;
+  width: 240px;
+  height: 240px;
+  transform: translate(-50%, -50%);
 }
 
-.sonar-ring.r2 {
-  animation-delay: 0.8s;
+.radar-ring,
+.radar-pulse,
+.radar-sweep {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
 }
 
-.sonar-ring.r3 {
-  animation-delay: 1.6s;
+.radar-ring {
+  border: 1px solid rgba(0, 229, 255, 0.18);
+  box-shadow: 0 0 24px rgba(0, 229, 255, 0.05);
+}
+
+.radar-ring-1 {
+  width: 92px;
+  height: 92px;
+}
+
+.radar-ring-2 {
+  width: 164px;
+  height: 164px;
+}
+
+.radar-ring-3 {
+  width: 236px;
+  height: 236px;
+}
+
+.radar-pulse {
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  box-shadow: 0 0 18px rgba(0, 229, 255, 0.12);
+  animation: sonarPing 4.8s ease-out infinite;
+}
+
+.radar-pulse-1 {
+  width: 42px;
+  height: 42px;
+}
+
+.radar-pulse-2 {
+  width: 42px;
+  height: 42px;
+  animation-delay: 2.2s;
+}
+
+.radar-sweep {
+  width: 280px;
+  height: 280px;
+  background: conic-gradient(
+    from 0deg,
+    rgba(0, 229, 255, 0) 0deg,
+    rgba(0, 229, 255, 0) 288deg,
+    rgba(0, 229, 255, 0.11) 332deg,
+    rgba(121, 238, 255, 0.3) 350deg,
+    rgba(0, 229, 255, 0) 360deg
+  );
+  opacity: 0.9;
+  filter: blur(1px);
+  animation: radarSweepRotate 7.6s linear infinite;
+}
+
+.radar-emitter-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--cyan);
+  box-shadow:
+    0 0 12px rgba(0, 229, 255, 0.45),
+    0 0 28px rgba(0, 229, 255, 0.18);
+  transform: translate(-50%, -50%);
+  animation: dotPulse 2.2s ease-in-out infinite;
+}
+
+.radar-hud {
+  position: absolute;
+  display: grid;
+  gap: 2px;
+  padding: 8px 10px;
+  border: 1px solid rgba(79, 195, 247, 0.14);
+  border-radius: 12px;
+  background: rgba(7, 15, 22, 0.58);
+  box-shadow: inset 0 0 20px rgba(0, 229, 255, 0.02);
+}
+
+.radar-hud span,
+.radar-hud strong {
+  font-family: var(--font-ibm-plex-mono), "Consolas", monospace;
+}
+
+.radar-hud span {
+  color: var(--text-soft);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.radar-hud strong {
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.radar-hud-top-left {
+  top: 14px;
+  left: 14px;
+}
+
+.radar-hud-top-right {
+  top: 14px;
+  right: 14px;
+  text-align: right;
+}
+
+.radar-hud-bottom-left {
+  bottom: 14px;
+  left: 14px;
 }
 
 .diagram-meta {
