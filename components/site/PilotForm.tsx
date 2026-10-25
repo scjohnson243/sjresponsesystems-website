@@ -28,7 +28,7 @@ export default function PilotForm() {
   return <form className="pilot-form" onSubmit={openEmail} action="mailto:info@sjresponsesystems.com" method="get" aria-labelledby="inquiry-title" aria-describedby="email-explanation">
     <h2 id="inquiry-title">Start a pilot conversation.</h2>
     <p id="email-explanation">This form opens your own email client with a fully composed draft to <a href="mailto:info@sjresponsesystems.com">info@sjresponsesystems.com</a>. There is no server submission. You must review and send the email yourself.</p>
-    <p>All fields are required unless marked optional. Please do not include sensitive information or footage.</p>
+    <p>All fields are required unless marked optional. Please do not include sensitive information or footage. See our <a href="/privacy">privacy and inquiry information</a>.</p>
     <fieldset disabled={!mounted}>
       <legend>Your contact and pilot idea</legend>
       <div className="form-grid">
