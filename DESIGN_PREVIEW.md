@@ -1,7 +1,7 @@
-# SJRS Sentinel Vision — private site concept (2026-10-24)
+# SJRS Sentinel Vision — historical design and preview record (2026-10-24)
 
-## Status
-LOCAL PREVIEW ONLY. Not approved for production. Branch: preview/sjrs-rebrand-oct2026. Do not push or deploy until owner approval.
+## Current status
+**LAUNCHED:** The owner approved publication on 2026-10-24; the design moved into `main` as production commit `94ff76d`. See `docs/PRODUCTION_STATUS.md` for current verified operations and remaining risks. The material below is the historical preview/agent development record, not present deployment instructions.
 
 ## Market position
 SJ Response Systems LLC is a technology company developing Sentinel Vision, a modular visual-intelligence platform. ATLAS is internal engineering infrastructure only. Site should attract pilot discussions from retailers, automotive dealerships, facilities and wildlife/land organizations without claiming validated modules, customers or deployments.
