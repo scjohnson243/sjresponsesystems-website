@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ProductShell from "@/components/site/ProductShell";
+import EvidenceShowcase from "@/components/site/EvidenceShowcase";
 
 export const metadata: Metadata = {
   title: "Sentinel Vision | SJ Response Systems",
@@ -35,6 +36,7 @@ export default function SentinelPage() {
       <p className="eyebrow">APPLICATIONS UNDER EXPLORATION</p><h2 id="cases-title">Concrete questions.<br/>Measurable pilot work.</h2>
       <div className="product-grid">{applications.map(item => <article key={item.sector}><p className="eyebrow">{item.sector}</p><h3>{item.title}</h3><p className="use-question">{item.question}</p><h4>Proposed scope</h4><p>{item.proposal}</p><h4>What needs validation</h4><p>{item.validation}</p></article>)}</div>
     </section>
+    <EvidenceShowcase />
     <section className="product-section" aria-labelledby="boundaries-title"><p className="eyebrow">REAL-WORLD BOUNDARIES</p><h2 id="boundaries-title">The environment is part of the problem.</h2><div className="product-grid"><article><h3>Footage, compute, and reliability</h3><p>Resolution, viewing angle, lighting, bandwidth, and available hardware affect feasibility. Local-first processing is a design direction; deployment architecture, retention, uptime expectations, and integrations must be agreed for a specific pilot.</p></article><article><h3>Permission and human judgment</h3><p>Partners must have authority to use the footage. Access, privacy, retention, and review responsibilities should be defined before any data is shared. Observations need human interpretation and do not establish identity, intent, or safety.</p></article></div><Link className="text-link" href="/partners">Help define a focused evaluation <span aria-hidden="true">↗</span></Link></section>
   </ProductShell>;
 }
