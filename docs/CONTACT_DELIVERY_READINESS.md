@@ -28,3 +28,8 @@ Existing wildlife camera evidence may include identifiable home/location informa
 3. HTTP 200 for homepage, /sentinel, /partners.
 4. Lint and production build passing.
 5. Working pilot submission with end-to-end receipt in info mailbox, followed by a user-approved deployment.
+
+## W004 implementation checkpoint — 2026-10-24
+A disabled-by-default Next.js API route is implemented at /api/pilot-inquiry. It accepts structured inquiry JSON, validates lengths and use case, fixes the destination to info@sjresponsesystems.com and, only when explicitly configured, obtains an OAuth token using Microsoft Entra client credentials and calls Microsoft Graph sendMail. No credentials have been installed. The endpoint returned HTTP 503 without configuration, as intended. The currently visible partner form continues to use a user-controlled mailto draft.
+
+Activation requires authorization to configure an app registration and mailbox permissions, plus: SJRS_GRAPH_TENANT_ID, SJRS_GRAPH_CLIENT_ID, SJRS_GRAPH_CLIENT_SECRET, SJRS_GRAPH_SENDER (sender mailbox with permitted application access). Do not expose secrets in source, commit them, or enable online form submission until real delivery has been checked. Microsoft Graph app permissions must be restricted to the intended mailbox according to the tenant's supported access control. Before public enablement, implement durable rate limiting/abuse controls and success/failure UX. No production deployment has been performed.
