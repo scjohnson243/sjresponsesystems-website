@@ -17,3 +17,6 @@ Public-only reviewed brief saved at E:\Development\ATLAS\state\sjrs_public_brand
 
 ## Preview acceptance
 npm run build completed successfully. HTTP localhost:4387 returned 200 and hero copy. Await independent mobile/desktop screenshot and owner sign-off.
+
+## SJRS-W002 — 2026-10-24
+ATLAS isolated Codex builder completed, Gemini reviewer approved with no blocking findings; mission marked failed only because its default Python unittest discovery returned code 5 (no Python tests in this Next.js repo). Local promotion manually inspected. Native npm lint and Next.js production build both passed; /, /sentinel and /partners returned HTTP 200 over local LAN. Form composes a mailto draft to info@sjresponsesystems.com; it does not send server-side. Never publish without separate owner approval. ATLAS process-runner compatibility defect was observed and minimal progress-argument workaround applied locally in ATLAS, but broader runner test failure remains and is not website acceptance evidence.
